@@ -1,0 +1,19 @@
+2023-05-28 21:38:28,713 - INFO - BEGIN (implicit)
+2023-05-28 21:38:28,713 - INFO - PRAGMA main.table_info("users")
+2023-05-28 21:38:28,713 - INFO - [raw sql] ()
+2023-05-28 21:38:28,714 - INFO - PRAGMA temp.table_info("users")
+2023-05-28 21:38:28,714 - INFO - [raw sql] ()
+2023-05-28 21:38:28,714 - INFO - 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	username VARCHAR, 
+	password VARCHAR, 
+	encoding BLOB, 
+	PRIMARY KEY (id)
+)
+
+
+2023-05-28 21:38:28,714 - INFO - [no key 0.00004s] ()
+2023-05-28 21:38:28,715 - INFO - COMMIT
+2023-05-28 21:38:28,715 - ERROR - Database error during username check: Column expression, FROM clause, or other columns clause element expected, got [Table('users', MetaData(), Column('id', Integer(), table=<users>, primary_key=True, nullable=False), Column('username', String(), table=<users>), Column('password', String(), table=<users>), Column('encoding', LargeBinary(), table=<users>), schema=None)]. Did you mean to say select(Table('users', MetaData(), Column('id', Integer(), table=<users>, primary_key=True, nullable=False), Column('username', String(), table=<users>), Column('password', String(), table=<users>), Column('encoding', LargeBinary(), table=<users>), schema=None))?
+2023-05-28 21:38:28,715 - ERROR - Exception during user registration: local variable 'session' referenced before assignment
