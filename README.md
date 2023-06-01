@@ -1,5 +1,5 @@
 
-# Windows Custom Credential Provider with Face Recognition
+# Windows 10 Custom Credential Provider with Face Recognition
 
 This guide will help you install and implement a custom Credential Provider for the Windows login system, using Microsoft's sample code as a base and extending it to communicate with a Python script that performs face recognition. The guide assumes that you have a working Python script for face recognition, that communicates its results through a server socket.
 
