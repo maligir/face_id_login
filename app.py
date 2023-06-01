@@ -105,17 +105,20 @@ class FaceVerification:
         # Create a socket object 
         serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
         serversocket.settimeout(2)
-        # Bind to the port 
-        serversocket.bind(('localhost', 12345))                                  
-        # Start listening for client connections
-        serversocket.listen(5)
-        # Accept a connection from the client
-        clientsocket, addr = serversocket.accept()       
-        # Send the message
-        clientsocket.send(message.encode('utf-8'))  
-        # Close the connection
-        clientsocket.close()
-        serversocket.close()
+        try:
+            # Bind to the port 
+            serversocket.bind(('localhost', 12345))                                  
+            # Start listening for client connections
+            serversocket.listen(5)
+            # Accept a connection from the client
+            clientsocket, addr = serversocket.accept()       
+            # Send the message
+            clientsocket.send(message.encode('utf-8'))  
+            # Close the connection
+            clientsocket.close()
+            serversocket.close()
+        except socket.timeout:
+            print("Socket timed out")
 
     def run(self):
         # Initialize camera
@@ -133,7 +136,7 @@ class FaceVerification:
         while match == 0 and iteration_count < max_iterations and rval:
             iteration_count += 1
             # Get frame from camera and wait a few milliseconds
-            cv2.imshow("preview", frame)
+            # cv2.imshow("preview", frame)
             frame = vc.read()[1]
             if(frameCounter%120 == 0):
                 if(fileCounter > 1):
@@ -155,7 +158,7 @@ class FaceVerification:
             #update frame counter
             frameCounter+=1
         # Clean up and Destroy all windows and files
-        cv2.destroyAllWindows()
+        # cv2.destroyAllWindows()
         self.clean_images("img0.jpg")
         self.clean_images("img1.jpg")
 
